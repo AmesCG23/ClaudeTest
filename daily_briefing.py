@@ -37,21 +37,21 @@ RECIPIENT_EMAIL = os.environ["GMAIL_ADDRESS"]
 def ask_claude(prompt):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=1024,
-    tools=[{"type": "web_search_20250305", "name": "web_search"}],
-    messages=[
-        {"role": "user", "content": prompt}
-    ]
-)
-
-# Claude"s response comes back as a list of content blocks.
-# We find the text block and return it.
-for block in message.content:
-    if block.type == "text":
-        return block.text
-return "No response received from Claude."
+    message = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=1024,
+        tools=[{"type": "web_search_20250305", "name": "web_search"}],
+        messages=[
+            {"role": "user", "content": prompt}
+        ]
+    )
+    
+    # Claude"s response comes back as a list of content blocks.
+    # We find the text block and return it.
+    for block in message.content:
+        if block.type == "text":
+            return block.text
+    return "No response received from Claude."
 
 # —————————————————————
 
