@@ -39,9 +39,9 @@ def send_email(subject, body):
 def main():
     prompt = (
         'Please search the web and find the top five stories '
-        'this morning on federal funding cuts or freezes. '
+        'published in the past 3 days on ancient history or archaeology. '
         'For each story, give me the headline, a two or three '
-        'sentence summary, and the source.'
+        'sentence summary, and a link to the source.'
     )
     print('Asking Claude...')
     result = ask_claude(prompt)
