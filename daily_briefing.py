@@ -37,12 +37,12 @@ def send_email(subject, body):
 
 
 def main():
-    prompt = 'Please give me a detailed daily briefing on federal funding cuts and freezes. Cover five stories. For each story provide: a clear headline, the background context needed to understand the issue, what specifically happened or was announced, who is affected and how, and any notable reactions or next steps. Each story should be substantial -- aim for three to five full paragraphs. Use clear headers to separate each story.'
+    prompt = 'Please give me a detailed daily briefing on developments in ancient history and archaeology. Cover two stories. For each story provide: a clear headline, the background context needed to understand the issue, what specifically happened or was announced, and any notable reactions or next steps. Each story should be substantial -- aim for three to five full paragraphs. Use clear headers to separate each story.'
     print('Asking Claude...')
     result = ask_claude(prompt)
     print('Sending email...')
     send_email(
-        subject='Daily Briefing: Federal Funding Cuts',
+        subject='Daily Briefing: History!',
         body=result
     )
 
