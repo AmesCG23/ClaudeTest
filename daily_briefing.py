@@ -47,7 +47,7 @@ message = client.messages.create(
     ]
 )
 
-# Claude's response comes back as a list of content blocks.
+# Claude"s response comes back as a list of content blocks.
 # We find the text block and return it.
 for block in message.content:
     if block.type == "text":
@@ -77,7 +77,7 @@ msg["Subject"] = subject
 # Attach the body as plain text
 msg.attach(MIMEText(body, "plain"))
 
-# Connect to Gmail's outgoing mail server and send
+# Connect to Gmail"s outgoing mail server and send
 with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
     server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
     server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
@@ -95,10 +95,10 @@ print("Email sent successfully.")
 
 def main():
 prompt = (
-“Please search the web and find the top five stories “
-“this morning on federal funding cuts or freezes. “
-“For each story, give me the headline, a two or three “
-“sentence summary, and the source.”
+"Please search the web and find the top five stories "
+"this morning on federal funding cuts or freezes. "
+"For each story, give me the headline, a two or three "
+"sentence summary, and the source."
 )
 
 ```
@@ -112,7 +112,7 @@ send_email(
 )
 ```
 
-# This line means “run main() when this script is executed directly”
+# This line means "run main() when this script is executed directly"
 
-if **name** == “**main**”:
+if **name** == "**main**":
 main()
