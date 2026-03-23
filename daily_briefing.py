@@ -51,7 +51,6 @@ message = client.messages.create(
 for block in message.content:
     if block.type == "text":
         return block.text
-
 return "No response received from Claude."
 
 # —————————————————————
