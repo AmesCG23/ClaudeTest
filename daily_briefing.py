@@ -14,15 +14,15 @@ import os
 
 # —————————————————————
 
-ANTHROPIC_API_KEY = os.environ[“ANTHROPIC_API_KEY”]
-GMAIL_ADDRESS = os.environ[“GMAIL_ADDRESS”]
-GMAIL_APP_PASSWORD = os.environ[“GMAIL_APP_PASSWORD”]
+ANTHROPIC_API_KEY = os.environ["ANTHROPIC_API_KEY"]
+GMAIL_ADDRESS = os.environ["GMAIL_ADDRESS"]
+GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
 
 # The email address you want to send the briefing TO.
 
 # For now this is you, so it’s the same as your Gmail address.
 
-RECIPIENT_EMAIL = os.environ[“GMAIL_ADDRESS”]
+RECIPIENT_EMAIL = os.environ["GMAIL_ADDRESS"]
 
 # —————————————————————
 
@@ -69,9 +69,9 @@ return "No response received from Claude."
 def send_email(subject, body):
 # Build the email structure
 msg = MIMEMultipart()
-msg[“From”] = GMAIL_ADDRESS
-msg[“To”] = RECIPIENT_EMAIL
-msg[“Subject”] = subject
+msg["From"] = GMAIL_ADDRESS
+msg["To"] = RECIPIENT_EMAIL
+msg["Subject"] = subject
 
 ```
 # Attach the body as plain text
