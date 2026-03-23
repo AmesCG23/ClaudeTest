@@ -13,8 +13,8 @@ RECIPIENT_EMAIL = os.environ['GMAIL_ADDRESS']
 def ask_claude(prompt):
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     message = client.messages.create(
-        model='claude-sonnet-4-6',
-        max_tokens=4096,
+        model='claude-haiku-4-5',
+        max_tokens=8192,
         tools=[{'type': 'web_search_20250305', 'name': 'web_search'}],
         messages=[{'role': 'user', 'content': prompt}]
     )
@@ -37,12 +37,7 @@ def send_email(subject, body):
 
 
 def main():
-    prompt = (
-        'Please search the web and find the top five stories '
-        'published in the past 3 days on ancient history or archaeology. '
-        'For each story, give me the headline, a two or three '
-        'sentence summary, and a link to the source.'
-    )
+    prompt = 'Please give me a detailed daily briefing on federal funding cuts and freezes. Cover five stories. For each story provide: a clear headline, the background context needed to understand the issue, what specifically happened or was announced, who is affected and how, and any notable reactions or next steps. Each story should be substantial -- aim for three to five full paragraphs. Use clear headers to separate each story.'
     print('Asking Claude...')
     result = ask_claude(prompt)
     print('Sending email...')
