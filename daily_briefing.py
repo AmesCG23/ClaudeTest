@@ -71,14 +71,13 @@ def send_email(subject, body):
     msg["Subject"] = subject
 
 # Attach the body as plain text
-msg.attach(MIMEText(body, "plain"))
+    msg.attach(MIMEText(body, "plain"))
 
 # Connect to Gmail"s outgoing mail server and send
-with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-    server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-    server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
-
-print("Email sent successfully.")
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+        server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
+    print("Email sent successfully.")
 
 # —————————————————————
 
@@ -96,16 +95,13 @@ def main():
     "sentence summary, and the source."
     )
 
-print("Asking Claude...")
-result = ask_claude(prompt)
+    print("Asking Claude...")
+    result = ask_claude(prompt)
+    
+    print("Sending email...")
+    send_email(
+        subject="Daily Briefing: Federal Funding Cuts",
+        body=result
+    )
 
-print("Sending email...")
-send_email(
-    subject="Daily Briefing: Federal Funding Cuts",
-    body=result
-)
-
-# This line means "run main() when this script is executed directly"
-
-if __name__ == "__main__":
-    main()
+main()
