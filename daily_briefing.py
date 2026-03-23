@@ -66,10 +66,10 @@ return "No response received from Claude."
 
 def send_email(subject, body):
 # Build the email structure
-msg = MIMEMultipart()
-msg["From"] = GMAIL_ADDRESS
-msg["To"] = RECIPIENT_EMAIL
-msg["Subject"] = subject
+    msg = MIMEMultipart()
+    msg["From"] = GMAIL_ADDRESS
+    msg["To"] = RECIPIENT_EMAIL
+    msg["Subject"] = subject
 
 # Attach the body as plain text
 msg.attach(MIMEText(body, "plain"))
@@ -90,12 +90,12 @@ print("Email sent successfully.")
 # —————————————————————
 
 def main():
-prompt = (
-"Please search the web and find the top five stories "
-"this morning on federal funding cuts or freezes. "
-"For each story, give me the headline, a two or three "
-"sentence summary, and the source."
-)
+    prompt = (
+    "Please search the web and find the top five stories "
+    "this morning on federal funding cuts or freezes. "
+    "For each story, give me the headline, a two or three "
+    "sentence summary, and the source."
+    )
 
 print("Asking Claude...")
 result = ask_claude(prompt)
