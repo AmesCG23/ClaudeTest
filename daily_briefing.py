@@ -35,7 +35,7 @@ RECIPIENT_EMAIL = os.environ["GMAIL_ADDRESS"]
 # —————————————————————
 
 def ask_claude(prompt):
-client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
 ```
 message = client.messages.create(
