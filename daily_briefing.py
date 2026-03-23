@@ -109,4 +109,4 @@ send_email(
 # This line means "run main() when this script is executed directly"
 
 if __name__ == "__main__":
-main()
+    main()
