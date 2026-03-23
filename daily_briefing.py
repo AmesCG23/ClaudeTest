@@ -108,5 +108,5 @@ send_email(
 
 # This line means "run main() when this script is executed directly"
 
-if **name** == "**main**":
+if __name__ == "__main__":
 main()
