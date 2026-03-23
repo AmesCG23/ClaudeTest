@@ -53,7 +53,6 @@ for block in message.content:
         return block.text
 
 return "No response received from Claude."
-```
 
 # —————————————————————
 
@@ -72,7 +71,6 @@ msg["From"] = GMAIL_ADDRESS
 msg["To"] = RECIPIENT_EMAIL
 msg["Subject"] = subject
 
-```
 # Attach the body as plain text
 msg.attach(MIMEText(body, "plain"))
 
@@ -82,7 +80,6 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
     server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
 
 print("Email sent successfully.")
-```
 
 # —————————————————————
 
@@ -100,7 +97,6 @@ prompt = (
 "sentence summary, and the source."
 )
 
-```
 print("Asking Claude...")
 result = ask_claude(prompt)
 
@@ -109,7 +105,6 @@ send_email(
     subject="Daily Briefing: Federal Funding Cuts",
     body=result
 )
-```
 
 # This line means "run main() when this script is executed directly"
 
