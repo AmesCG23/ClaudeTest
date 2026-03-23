@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------
+# GITHUB ACTIONS WORKFLOW
+# This file tells GitHub how and when to run your script.
+# It lives in a special folder: .github/workflows/
+# ---------------------------------------------------------------
+
+name: Daily Federal Funding Briefing
+
+on:
+  # Allows you to run this manually from the Actions tab
+  # using the "Run workflow" button — great for testing
+  workflow_dispatch:
+
+  # Runs automatically on a schedule
+  # GitHub uses UTC time, so 14:00 UTC = 9:00 AM EST
+  # If you're on EDT (summer), use 13:00 UTC instead
+  schedule:
+    - cron: "0 14 * * *"
+
+jobs:
+  send-briefing:
+    # Use a fresh Ubuntu virtual machine hosted by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out your repository code
+      # This makes your Python script available to run
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Step 3: Install the libraries your script needs
+      - name: Install dependencies
+        run: pip install anthropic
+
+      # Step 4: Run your script
+      # The env block is how GitHub passes your secrets
+      # into the script as environment variables
+      - name: Run daily briefing
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: python daily_briefing.py
