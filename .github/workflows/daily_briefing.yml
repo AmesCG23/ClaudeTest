@@ -1,9 +1,9 @@
 name: Daily Briefing
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 16 * * *'
+# on:
+#  workflow_dispatch:
+#  schedule:
+#    - cron: '0 16 * * *'
 
 jobs:
   send-briefing:
